@@ -1,16 +1,21 @@
 import { useState } from "react"
 
-export function TwitterFollowCard({ children, userName = 'Unknown', initialIsFollowing}) {
+export function TwitterFollowCard({ children, userName = 'Unknown', initialIsFollowing }) {
 
+    // Generar la fuente de la imagen con el nombre de usuario.
     const imgSource = `https://unavatar.io/${userName}`
 
-    const  [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+    // Estado local para manejar si se está siguiendo o no.
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+
+    // Texto y clase dinámico del botón dependiendo de si se está siguiendo o no.
     const followingText = isFollowing ? 'Siguiendo' : 'Seguir'
 
     const buttonClassName = isFollowing
-    ? 'tw-followCard-button is-following'
-    : 'tw-followCard-button'
+        ? 'tw-followCard-button is-following'
+        : 'tw-followCard-button'
 
+    // Manejador de clic para cambiar el estado de seguimiento.
     const handleClick = () => {
         setIsFollowing(!isFollowing)
     }
